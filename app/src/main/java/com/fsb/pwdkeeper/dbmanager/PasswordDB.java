@@ -4,8 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 public class PasswordDB extends SQLiteOpenHelper {
-    static String DATABASE_NAME="passwordKeeper";
-    public static final String TABLE_NAME="logins";
+    static String DATABASE_NAME="passwords";
+    public static final String TABLE_NAME="accounts";
     public static final String id="id";
     public static final String name="name";
     public static final String email="email";
@@ -15,7 +15,7 @@ public class PasswordDB extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase database) {
-        String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+id+" INTEGER PRIMARY KEY, "+name+" VARCHAR, "+email+" VARCHAR, "+password+" VARCHAR)";
+        String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+id+" VARCHAR PRIMARY KEY, "+name+" VARCHAR, "+email+" VARCHAR, "+password+" VARCHAR)";
         database.execSQL(CREATE_TABLE);
     }
     @Override

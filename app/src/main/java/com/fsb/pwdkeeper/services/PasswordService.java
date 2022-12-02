@@ -56,10 +56,11 @@ public class PasswordService {
     }
 
     public Password findById(String id){
-        Password password;
-        String query = "SELECT * FROM "+PasswordDB.TABLE_NAME+" WHERE "+PasswordDB.id+" = "+id;
-        Cursor row = this.db.rawQuery(query,null);
-        if(row.getCount()<=0)return null;
-        else return new Password(this.getAttr(row,PasswordDB.id),this.getAttr(row,PasswordDB.name),this.getAttr(row,PasswordDB.email),this.getAttr(row,PasswordDB.password));
+        List<Password> list = this.findAll();
+        for(Password pwd:list){
+            if(pwd.getId().equals(id)) return pwd;
+        }
+        return null;
     }
+
 }
