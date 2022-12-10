@@ -1,4 +1,4 @@
 # Password Keeper
-Password Keeper is a password manager created by AbdRahmen Amri Ghada Hamoudi Oussema Saoudi. that allows users to store online login credentials. Users can be authenticated by password or biometrics.
+Password Keeper is a password manager created by [AbdRahmen Amri](https://abdrahmen.me) [Ghada Hamoudi](https://github.com/ghadaha1) [Oussema Saoudi](). that allows users to store online login credentials. Users can be authenticated by password or biometrics.
 
 >To try demo version go to [Google Drive](https://drive.google.com/drive/folders/1x1U1xMXw1fsuftglg1UCQGHoSrz9-pfB?usp=share_link)
