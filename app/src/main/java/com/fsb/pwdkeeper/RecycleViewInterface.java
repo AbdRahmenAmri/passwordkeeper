@@ -1,2 +1,4 @@
-package com.fsb.pwdkeeper;public interface RecycleViewInterface {
+package com.fsb.pwdkeeper;
+public interface RecycleViewInterface {
+    void onItemClick(int pos);
 }

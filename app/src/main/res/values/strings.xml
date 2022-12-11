@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Password Keeper</string>
+    <string name="new_password">New Password</string>
+    <string name="save">Save</string>
+    <string name="pasword">Pasword</string>
+    <string name="name">Name</string>
+    <string name="username_e_mail">username / E-mail</string>
+    <string name="address">address</string>
 </resources>

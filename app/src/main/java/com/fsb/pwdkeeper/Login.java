@@ -18,16 +18,16 @@ import com.fsb.pwdkeeper.errorhandler.ErrorHandler;
 import com.fsb.pwdkeeper.services.AdminService;
 
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
     }
 
-    private void switchActivity(Class<Home> c){
-        Intent secondActivity = new Intent(MainActivity.this,c);
+    private void goHome(){
+        Intent secondActivity = new Intent(Login.this,Home.class);
         startActivity(secondActivity);
     }
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         if(adminService.firstRun()){
             //first run of the app
             login.setOnClickListener(view -> {
-                if(adminService.save(adminPwd.getText().toString())) switchActivity(Home.class);
+                if(adminService.save(adminPwd.getText().toString())) goHome();
                 else ErrorHandler.displayOnTextView(main_pwd_err,ErrorHandler.WEAKPASSWORD);
             });
         }else{
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             //Digital Login
             Authentication authentication = new Authentication(this.getContext());
             if(authentication.isBiometricSupported()){
-                BiometricPrompt biometricPrompt = new BiometricPrompt(MainActivity.this, ContextCompat.getMainExecutor(getContext()),
+                BiometricPrompt biometricPrompt = new BiometricPrompt(Login.this, ContextCompat.getMainExecutor(getContext()),
                         new BiometricPrompt.AuthenticationCallback() {
                             @Override
                             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             @Override
                             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                                switchActivity(Home.class);
+                                goHome();
                             }
                             @Override
                             public void onAuthenticationFailed() {
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
             // Login with password
             login.setOnClickListener(view -> {
-                if (adminService.login(adminPwd.getText().toString())) switchActivity(Home.class);
+                if (adminService.login(adminPwd.getText().toString())) goHome();
                 else ErrorHandler.displayOnTextView(main_pwd_err,ErrorHandler.WRONGPASSWORD);
             });
         }
