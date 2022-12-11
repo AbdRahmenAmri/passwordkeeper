@@ -52,8 +52,7 @@ public class Home extends AppCompatActivity implements RecycleViewInterface{
         this.loadData();
         Button new_password = findViewById(R.id.new_password);
         new_password.setOnClickListener(v -> {
-            Intent intent = new Intent(Home.this,NewPassword.class);
-            startActivity(intent);
+            startActivity(new Intent(Home.this,NewPassword.class));
         });
     }
 
